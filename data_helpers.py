@@ -27,7 +27,7 @@ def clean_str(string):
     return string.strip().lower()
 
 
-def load_data_from_disk(lang):
+def load_data_from_disk():
     pd_df = pd.read_csv('./data/en.csv')
 
     pd_df= pd_df[['community', 'title', 'textBody']]
@@ -149,7 +149,7 @@ def sentence_to_index(sentence, vocabulary, maxlen):
 
 
 def load_data():
-    x_raw, y_raw,labels = load_data_from_disk('en') #load_data_from_disk()
+    x_raw, y_raw,labels = load_data_from_disk()
 
     sentences_padded = pad_sentences(x_raw)
     vocabulary, vocabulary_inv = build_vocab(sentences_padded)
@@ -159,4 +159,4 @@ def load_data():
 
 
 if __name__ == "__main__":
-    load_data_from_disk('en')
+    load_data_from_disk()
