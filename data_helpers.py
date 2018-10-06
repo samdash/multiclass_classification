@@ -28,10 +28,7 @@ def clean_str(string):
 
 
 def load_data_from_disk(lang):
-    if lang =='pt':
-        pd_df = pd.read_csv('./data/pt.csv',encoding='utf8',engine='python',error_bad_lines=False)
-    else :
-        pd_df = pd.read_csv('./data/en.csv')
+    pd_df = pd.read_csv('./data/en.csv')
 
     pd_df= pd_df[['community', 'title', 'textBody']]
     pd_df.dropna()
